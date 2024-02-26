@@ -18,19 +18,22 @@ def equation2(x):
     """
     return np.cos(2*x) * x**3
 
-# Use fsolve to find the roots of equation 1
-roots_eq1 = fsolve(equation1, [-2, 2, 6])
+def main():
 
-# Use fsolve to find the roots of equation 2
-roots_eq2 = fsolve(equation2, [-2, 2, 6])
+    # Use fsolve to find the roots of equations 1 and 2
+    roots_eq1 = fsolve(equation1, [0])
+    roots_eq2 = fsolve(equation2, [0])
 
-print("Roots of equation 1:", roots_eq1)
-print("Roots of equation 2:", roots_eq2)
+    print("Roots of equation 1:", roots_eq1)
+    print("Roots of equation 2:", roots_eq2)
 
-# Check if there are any common roots
-common_roots = set(roots_eq1).intersection(roots_eq2)
+    # Check if there are any common roots
+    common_roots = set(roots_eq1).intersection(roots_eq2)
 
-if common_roots:
-    print("The functions intersect at the following points:", common_roots)
-else:
-    print("The functions do not intersect.")
+    if common_roots:
+        print("The functions intersect at the following points:", common_roots)
+    else:
+        print("The functions do not intersect.")
+
+if __name__ == '__main__':
+    main()
